@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Right Click</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" type="text/javascript"></script>
+    <script src="RightClick.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="RightClick.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Open+Sans" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="RightClickWebsite.css">
+    <!-- <link rel="stylesheet" type="text/css" href="SliderForRightClick.css">
+    <link rel="stylesheet" type="text/css" href="CheckBox.css"> -->
+
+    <style media="screen">
+
+    .sliderPos {
+      position: absolute !important;
+      left: 50% !important;
+      top: 55vh;
+      transform: translate(-50%, -50%);
+    }
+
+    * {
+      font-family: 'Roboto Slab',serif;
+    }
+
+    body {
+      filter: hue-rotate(312deg);
+    }
+
+    .header1 {
+      position: absolute;
+      left: 50%;
+      top: 25vh;
+      transform: translate(-50%, -50%);
+    }
+
+    .checkBoxContainer {
+      position: absolute;
+      left: 50%;
+      top: 95vh;
+      transform: translate(-50%, -50%);
+      font-family: 'Roboto Slab',serif;
+    }
+
+    all: initial;
+        * {
+            all: unset;
+        }
+
+        button {
+          position: relative;
+          font-family: 'Roboto Slab',serif;
+          width: 100px;
+          height: 100px;
+          z-index: 100;
+          background-color: transparent;
+          -webkit-box-shadow: -10px 15px 23px -9px rgba(0,0,0,0.3);
+          -moz-box-shadow: -10px 15px 23px -9px rgba(0,0,0,0.3);
+          box-shadow: -10px 15px 23px -9px rgba(0,0,0,0.3);
+          background-color: orange;
+          cursor: pointer;
+          /* margin: 10px; */
+          color: white;
+          text-align: center;
+        }
+
+     .inline {
+      position: absolute;
+      top: 50vh;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      display: flex; justify-content: center;
+     }
+
+     .inline2 {
+      position: absolute;
+      top: 70vh;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      display: flex; justify-content: center;
+     }
+
+     .sourced2 {
+       max-width: 100px;
+       max-height: 100px;
+     }
+
+     .mid {
+       position: absolute;
+       top: 50vh;
+       left: 50%;
+       transform: translate(-50%, -50%);
+     }
+
+     .fullscreen-img {
+       position: absolute;
+       left: 0;
+       top: 0;
+       min-width: 100vw;
+       min-height: 100vh;
+       z-index: -10;
+       opacity: 0.9;
+     }
+
+    </style>
+
+    </head>
+
+<body class="filter">
+<div class="header-wrapper filter">
+    <h2 class="left"><i class="em em-fire"></i> Michael Taiwo</h2>
+    <ul class="header-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Me</a></li>
+      <li><a href="#">Contact Me</a></li>
+      <li><a href="#">Plugins</a></li>
+    </ul>
+</div>
+<!--
+  <div class="filter" id="rightClickMenu">
+      <div class="menuComponent"></div>
+      <div class="menuComponent"></div>
+      <div class="menuComponent"></div>
+      <div class="menuComponent"></div>
+      <div class="menuCentre"></div>
+  </div> -->
+
+  <img class="fullscreen-img sourced" src="Pics/OrangeBackground.png">
+
+
+<div class="header1">
+  <h1>RIGHT CLICK AND PLAY AROUND</h1>
+</div>
+
+  <div class="canvas offset animate animate-fast filter" id="rightClickMenu">
+      <div class="menuComponent" onclick="copyAndPaste()"><img class="fitIcon" src="https://www.materialui.co/materialIcons/content/content_copy_black_192x192.png" alt=""></div>
+      <div class="menuComponent" onclick="openInNewTab()"><img class="fitIcon" src="https://cdn0.iconfinder.com/data/icons/pixon-1/24/ink_link_new_tab_open_outside_url_iconsize128-512.png" alt=""></div>
+      <div class="menuComponent" onclick="PrintPage()"><img class="fitIcon" src="https://image.flaticon.com/icons/png/128/34/34441.png" alt=""></div>
+      <div class="menuComponent" onclick="reloadPage()"><img class="fitIcon" src="https://openclipart.org/image/2400px/svg_to_png/171074/reload-icon.png" alt=""></div>
+      <div class="menuComponent" onclick="goBack()"><img class="fitIcon" src="http://iconshow.me/media/images/ui/free-vector-icons/png/512/back.png.png" alt=""></div>
+      <div class="menuComponent" onclick="goForward()"><img class="fitIcon" src="https://cdn4.iconfinder.com/data/icons/pictype-free-vector-icons/16/forward-512.png" alt=""></div>
+      <div class="menuPictureFrame"><img class="menuPictureFrameCanvas"></img></div>
+      <div class="menuCentre"></div>
+  </div>
+
+      <div class="inline">
+        <button type="button" onclick="changeShape(this)" id="button1" name="button" class="link">Square</button>
+        <button type="button" onclick="changeShape(this)" id="button2" name="button" class="link">Curved Square</button>
+        <button type="button" onclick="changeShape(this)" id="button3" name="button" class="link">Circle</button>
+        <button type="button" name="button" onclick="addDiv()">Add Button</button>
+        <button type="button" name="button" onclick="deleteDiv()">Delete Button</button>
+        <button type="button" name="button" onclick="addFunctionalButtons()">Add Functional Buttons</button>
+        <button type="button" name="button" onclick="removeFunctionalButtons()">Remove Functional Buttons</button>
+        <button type="button" name="button" onclick="toggleAnimation()" id="toggleButton">Default</button>
+        <button type="button" name="button" onclick="addCopyAndPasteButton()" id="toggleButton">Add Copy & Paste Button</button>
+        <button type="button" name="button" onclick="removeCopyAndPasteButton()" id="toggleButton">Remove Copy & Paste Button</button>
+        <input type="range" min="0" max="360" value="312" id="scroller" class="range horizontal-lowest-first sliderPos" oninput="changeHue()">
+
+      </div>
+      <div class="inline2">
+        <img class="sourced2 sourced" src="http://webiconspng.com/wp-content/uploads/2017/09/1-PNG-Image-10835.png">
+        <img class="sourced2 sourced" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/1_%281967-1979_New_York_City_Subway_bullet%29.svg/2000px-1_%281967-1979_New_York_City_Subway_bullet%29.svg.png">
+        <img class="sourced2 sourced" src="http://moziru.com/images/orange-clipart-number-3-10.png">
+      </div>
+
+      <label class="checkBoxContainer filter">Example Menu
+        <input type="checkbox" onclick="changeMenu()">
+        <span class="checkmark"></span>
+      </label>
+
+
+  </body>
+</html>
